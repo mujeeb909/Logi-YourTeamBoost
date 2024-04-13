@@ -197,21 +197,26 @@
 
                                 <div class="col-md-12">
                                     <div class="btn-group d-flex justify-content-around">
-                                        <input type="radio" class="btn-check" name="amount" id="btnradio1" value="20" checked>
+                                        <input type="radio" class="btn-check" name="amount" id="btnradio1"
+                                            value="20" checked>
                                         <label class="btn btn-light py-3" for="btnradio1">$20</label>
-                        
-                                        <input type="radio" class="btn-check" name="amount" id="btnradio2" value="50">
+
+                                        <input type="radio" class="btn-check" name="amount" id="btnradio2"
+                                            value="50">
                                         <label class="btn btn-light py-3" for="btnradio2">$50</label>
-                        
-                                        <input type="radio" class="btn-check" name="amount" id="btnradio3" value="70">
+
+                                        <input type="radio" class="btn-check" name="amount" id="btnradio3"
+                                            value="70">
                                         <label class="btn btn-light py-3" for="btnradio3">$70</label>
 
-                                        <input type="number" name="custom_amount" class="form-control bg-light border-0" id="custom_amount" style="width: 161px;" placeholder="Custom Amount">
+                                        <input type="number" name="custom_amount"
+                                            class="form-control bg-light border-0" id="custom_amount"
+                                            style="width: 161px;" placeholder="Custom Amount">
                                     </div>
                                 </div>
-                        
-                                
-                               
+
+
+
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary px-5" style="height: 60px;">
                                         Donate Now
@@ -285,16 +290,7 @@
     </div>
     <!-- Footer End -->
 
-    <script>
-        function removeRadioFocus() {
-            // Get all radio buttons
-            const radioButtons = document.querySelectorAll('.btn-check');
-            // Remove focus from each radio button
-            radioButtons.forEach(button => {
-                button.blur();
-            });
-        }
-    </script>
+
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
