@@ -216,7 +216,6 @@ public function update_player(Request $request, $id)
     
     public function SaveLink(Request $request){
         $validator = Validator::make($request->all(), [
-            // 'url' => 'required',
             'url' => ['required', 'url', 'regex:/^(https?|ftp):\/\/[^\s\/$.?#].[^\s]*$/i'],
         ]);
         

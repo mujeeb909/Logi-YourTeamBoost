@@ -99,6 +99,8 @@ public function session(Request $request)
     $user = User::where('email', $refEmail)->first();
     $userId = $user->id;
 
+     
+
     // Retrieve or create the customer based on their email
     try {
         $customerList = \Stripe\Customer::all(['email' => $donorEmail]);
@@ -129,6 +131,10 @@ public function session(Request $request)
 
     $total = $amount * 100; // Convert amount to cents
 
+    $successUrl = route('success', [
+        'userId' => $userId,
+    ], absolute:true);   
+
     $session = \Stripe\Checkout\Session::create([
         'customer' => $customer->id, 
         'payment_method_types' => ['card'],
@@ -143,7 +149,7 @@ public function session(Request $request)
             'quantity' => 1,
         ]],
         'mode' => 'payment',
-        'success_url' => route('success', [], absolute:true)."?session_id={CHECKOUT_SESSION_ID}",
+        'success_url' => $successUrl,
         'cancel_url' => route('cancel', [], absolute:true),
     ]);
 
@@ -159,16 +165,16 @@ public function session(Request $request)
     return redirect()->away($session->url);
 }
 
+public function success(Request $request)
+{
+    $userId = $request->query('userId');
+    $user = User::find($userId);
+    $coach = User::find($user->coach_id);
+    
 
+    return view('success', ['user'=>$user, 'coach'=>$coach]);
+}
 
-    
-    public function success(Request $request)
-    {
-    
-        return view('success');
-    }
-    
-    
 
 
     public function cancel(Request $request)
