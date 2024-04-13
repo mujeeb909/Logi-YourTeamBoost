@@ -200,6 +200,12 @@ public function update_player(Request $request, $id)
     
         return view('products.admin_teams', compact('coachData'));
     }
+
+    public function PlayerDonationLink(){
+
+        $user = Auth::user();
+        return view('player_donation_link', ['user'=> $user]);
+    }
     
 
 }

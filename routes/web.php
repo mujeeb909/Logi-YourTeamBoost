@@ -44,7 +44,9 @@ Route::get('/admin/players', [HomeController::class, 'coach_players'])->name('ad
 Route::get('/admin/teams', [HomeController::class, 'AdminTeams'])->name('admin/teams')->middleware(UserAccessMiddleware::class);
 Route::get('/admin/teams', [HomeController::class, 'AdminTeams'])->name('admin/teams')->middleware(UserAccessMiddleware::class);
 Route::get('/admin/donation', [HomeController::class, 'coachDonation'])->name('admin/donation')->middleware(UserAccessMiddleware::class);
+Route::get('admin/donation_link', [HomeController::class, 'PlayerDonationLink'])->name('admin/donation_link')->middleware(UserAccessMiddleware::class);
 Route::get('/admin/alldonation', [HomeController::class, 'coachAllDonation'])->name('admin/alldonations')->middleware(UserAccessMiddleware::class);
+
 Route::get('edit-admin/players/{id}', [HomeController::class, 'edit_player'])->name('edit-admin/players')->middleware(UserAccessMiddleware::class);
 Route::put('update/admin/players/{id}', [HomeController::class, 'update_player'])->name('admin/player/update')->middleware(UserAccessMiddleware::class);
 

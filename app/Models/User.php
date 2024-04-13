@@ -30,7 +30,8 @@ class User extends Authenticatable
         'emails',
         'type',
         'uuid',
-        'link'
+        'link',
+        'donate_link'
         
             
     ];

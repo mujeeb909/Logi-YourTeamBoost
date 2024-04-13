@@ -129,7 +129,8 @@ class AuthController extends Controller
         
         $baseUrl = $request->root();
         $link = url($baseUrl . '/donate/' . $user->uuid);
-
+        $user->donate_link = $link;
+        $user->save();
         
  
         return view('auth.player_registered',['link' => $link]);
