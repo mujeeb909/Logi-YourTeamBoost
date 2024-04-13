@@ -446,17 +446,7 @@
 .footer .copyright a:hover {
     color: var(--primary);
 }
-/* @media (max-width: 400px) and (min-height: 1539px) {
-        .custom-test {
-            margin-top: 178px;
-        }
-    }
-@media (max-width: 400px) and (min-height: 1539px) {
-        .custom-height {
-            margin-top: 178px;
-        }
-    }
-     */
+
 
      @media only screen and (max-width: 767px) {
         /* Add your styles here */
@@ -467,6 +457,10 @@
         .custom-test a {
             margin-top: -47px;
         }
+    }
+
+    .border-orange {
+        background: var(--primary) !important;
     }
     
     
