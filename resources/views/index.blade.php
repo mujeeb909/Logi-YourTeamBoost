@@ -230,7 +230,7 @@
                                 </div>
                                 <div style="display: flex; flex-direction: column; margin-top: 58px;  margin-left: -65px;">
                                     <p style="margin-top: -42px;margin-left:102px;text-align: left;">Christine Richardson, Founder</p> 
-                                    <img class="img-fluid bg-light p-2 mx-auto mb-4" style="width: 136px; height: 84px;" src="img/YTB_SIG_LOGO.png">
+                                    <img class="img-fluid bg-light p-2 mx-auto mb-4" style="width: 113px; height: 71px;" src="img/YTB_SIG_LOGO.png">
                                 </div>
                             </div>
                             
