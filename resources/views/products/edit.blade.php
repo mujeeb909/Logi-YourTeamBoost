@@ -45,7 +45,7 @@
         @for ($i = 0; $i < $numInputs; $i++)
         <div class="email-tags-input">
             <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-            <input type="text" style="width: 100%" name="emails[]" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ isset($emailsArray[$i]) ? $emailsArray[$i] : '' }}">
+            <input type="text" style="width: 188%" name="emails[]" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ isset($emailsArray[$i]) ? $emailsArray[$i] : '' }}">
         </div>
     @endfor
         
@@ -53,96 +53,6 @@
         </form>
         
         
-        {{-- <form action="{{ route('admin/player/update', $player->id) }}" method="POST">
-            @csrf
-            @method('PUT')
-           
-            <div class="email-tags-input">
-                
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-            <div class="email-tags-input">
-                <div id="emailTagsContainer" class="flex flex-wrap items-center mb-2"></div>
-                <input type="text" id="emails" style="width: 380px"  name="emails" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Donor Email Here" value="{{ $playerEmails }}">
-            </div>
-        
- 
-           
-            <button type="submit" class="flex w-full justify-center mt-10 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Update</button>
-        </form> --}}
     </div>
 </div>
 <script>
