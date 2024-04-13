@@ -48,6 +48,8 @@ Route::get('admin/donation_link', [HomeController::class, 'PlayerDonationLink'])
 Route::get('/admin/alldonation', [HomeController::class, 'coachAllDonation'])->name('admin/alldonations')->middleware(UserAccessMiddleware::class);
 
 Route::get('edit-admin/players/{id}', [HomeController::class, 'edit_player'])->name('edit-admin/players')->middleware(UserAccessMiddleware::class);
+Route::get('admin/add/link/{id}', [HomeController::class, 'AddLink'])->name('add/link')->middleware(UserAccessMiddleware::class);
+Route::post('admin/save/link/{id}', [HomeController::class, 'SaveLink'])->name('save/link')->middleware(UserAccessMiddleware::class);
 Route::put('update/admin/players/{id}', [HomeController::class, 'update_player'])->name('admin/player/update')->middleware(UserAccessMiddleware::class);
 
 

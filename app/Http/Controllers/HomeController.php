@@ -7,6 +7,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Validator;
  
 class HomeController extends Controller
 {
@@ -206,6 +207,32 @@ public function update_player(Request $request, $id)
         $user = Auth::user();
         return view('player_donation_link', ['user'=> $user]);
     }
+
+    public function AddLink($id){
+        $user = User::find($id);
+        
+        return view('products.add_link', ['id'=> $id, 'user'=>$user]);
+    }
     
+    public function SaveLink(Request $request){
+        $validator = Validator::make($request->all(), [
+            'url' => 'required',
+        ]);
+        
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }else{
+            
+        }
+        
+        $user = User::find($request->id);
+        $url = $request->url;
+        $user->social_link = $url;
+        $user->save();
+
+        return redirect()->route('admin/teams')->with('success', 'URL Added successfully.');
+    }
 
 }

@@ -31,7 +31,8 @@ class User extends Authenticatable
         'type',
         'uuid',
         'link',
-        'donate_link'
+        'donate_link',
+        'social_link'
         
             
     ];
