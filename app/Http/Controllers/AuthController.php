@@ -51,7 +51,9 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
     public function c_registerSave(Request $request)
-    {
+    {   
+        
+
         Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
@@ -140,6 +142,7 @@ class AuthController extends Controller
  
     public function login(Request $request)
     {   
+        
         return view('auth/login');
     }
  

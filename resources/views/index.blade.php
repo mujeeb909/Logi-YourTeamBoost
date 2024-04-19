@@ -210,7 +210,7 @@
                         <div class="bg-light border-bottom border-5 border-primary rounded p-4 mb-4">
                             <p class="text-dark mb-2">Your Team Boost is dedicated to empowering schools and
                                 organizations to reach their financial goals with innovative strategies and
-                                unwavering support. 
+                                unwavering support. <br/> <br/>
                                 At Your Team Boost, we go beyond by offering a fully
                                 customized web store that allows participants to make
                                 purchases for branded merchandise. This unique feature
@@ -226,7 +226,10 @@
                         <span class="text-primary">
                             <div class="testimonial-item" style="display: flex;">
                                 <div style="display: flex; align-items: left;">
-                                    <img class="img-fluid bg-light border-orange rounded-circle border-orange p-2 mx-auto mb-4" src="img/christine_pic.jpg" style="width: 100px; height: 100px;">
+                                   <img class="img-fluid bg-light border-orange border-orange p-2 mx-auto mb-4"
+                                        src="img/crtinins.jpg"
+                                        style="width: 120px;
+                                    height: 150px;">
                                 </div>
                                 <div style="display: flex; flex-direction: column; margin-top: 58px;  margin-left: -65px;">
                                     <p style="margin-top: -42px;margin-left:102px;text-align: left;">Christine Richardson, Founder</p> 

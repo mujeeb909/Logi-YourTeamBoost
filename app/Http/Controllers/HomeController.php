@@ -166,7 +166,9 @@ public function update_player(Request $request, $id)
     public function AdminTeams() {
         // Retrieve coaches where coach_id is 0
         $coaches = User::where('coach_id', 0)
-                    ->where('type', '!=', 3)->get();
+               ->where('type', '!=', 3)
+               ->orderBy('created_at', 'desc')
+               ->get();
     
     
         $coachData = [];

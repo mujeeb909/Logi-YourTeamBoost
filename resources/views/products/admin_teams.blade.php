@@ -97,6 +97,7 @@
                     <th scope="col" class="px-6 py-3 text-left"> No of Referal Emails </th>
                     <th scope="col" class="px-6 py-3 text-left"> Action </th>
                     <th scope="col" class="px-6 py-3 text-left"> Custom URL </th>
+                    <th scope="col" class="px-6 py-3 text-left"> Export Data </th>
                 </tr>
             </thead>
             <tbody>
@@ -117,6 +118,11 @@
                             <td class="px-6 py-4 whitespace-normal">
                               <a style="background-color: #2563EB" class="flex items-center justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="add/link/{{$coach['id']}}" style="width:80%">+</a>
                           </td>
+                          <td class="px-6 py-4 whitespace-normal">
+                            <a href="{{ route('export', ['coach' => $coach['id']]) }}" style="background-color: #2563EB" class="flex items-center justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" style="width:80%">Export</a>
+
+                        </td>
+                       
                         </tr>
                     @endforeach
                 @else

@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Helpers;
 
 function pre_print($data)
 {

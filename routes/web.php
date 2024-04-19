@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -49,6 +50,7 @@ Route::get('/admin/alldonation', [HomeController::class, 'coachAllDonation'])->n
 
 Route::get('edit-admin/players/{id}', [HomeController::class, 'edit_player'])->name('edit-admin/players')->middleware(UserAccessMiddleware::class);
 Route::get('admin/add/link/{id}', [HomeController::class, 'AddLink'])->name('add/link')->middleware(UserAccessMiddleware::class);
+Route::get('/export/{coach}', [ExportController::class, 'export'])->name('export');
 Route::post('admin/save/link/{id}', [HomeController::class, 'SaveLink'])->name('save/link')->middleware(UserAccessMiddleware::class);
 Route::put('update/admin/players/{id}', [HomeController::class, 'update_player'])->name('admin/player/update')->middleware(UserAccessMiddleware::class);
 
@@ -62,7 +64,7 @@ Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/hom
 Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile')->middleware(UserAccessMiddleware::class);
 
  
-Route::get('/checkout', 'App\Http\Controllers\StripeController@checkout')->name('checkout');
+
 Route::post('/session', 'App\Http\Controllers\StripeController@session')->name('session');
 Route::get('/success', 'App\Http\Controllers\StripeController@success')->name('success');
 Route::get('/cancel', 'App\Http\Controllers\StripeController@cancel')->name('cancel');
