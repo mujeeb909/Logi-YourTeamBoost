@@ -7,17 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About YourTeamBoost
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This project is a charity platform tailored for sports teams, enabling coaches to initiate fundraising campaigns by registering themselves on the website. Upon registration, each coach is provided with a unique QR code, which can be scanned by multiple players associated with the team. 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Once scanned, players can register themselves and provide a minimum of 20 referral email addresses. Subsequently, when this process is completed, all referral emails are aggregated. An administrator then gains the ability to commence a campaign from their dashboard, sending out emails to the addresses collected from players, urging recipients to donate to the team's cause.
+
+The dashboard serves as a centralized hub where users, including administrators, coaches, and players, can access specific functionalities pertinent to their roles. This includes viewing campaign progress, managing donations, and accessing links to the team's website for making donations via Stripe, a secure payment processing platform.
+
+Overall, the platform facilitates efficient coordination and execution of fundraising efforts, providing a seamless experience for all stakeholders involved in supporting the team's charitable initiatives.
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
