@@ -17,7 +17,7 @@ The dashboard serves as a centralized hub where users, including administrators,
 
 Overall, the platform facilitates efficient coordination and execution of fundraising efforts, providing a seamless experience for all stakeholders involved in supporting the team's charitable initiatives.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+
 
 ## Home
 
