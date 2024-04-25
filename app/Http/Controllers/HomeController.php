@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
-use Validator;
+use Illuminate\Support\Facades\Storage;
  
 class HomeController extends Controller
 {
@@ -241,6 +242,129 @@ public function update_player(Request $request, $id)
         $user->save();
 
         return redirect()->route('admin/teams')->with('success', 'URL Added successfully.');
+    }
+
+    public function editUserProfile($id){
+        $user = User::find($id);
+
+        
+        return view('edit-profile', ['id'=> $id, 'user'=>$user]);
+    }
+
+    public function updateUserProfile(Request $request, $id){
+
+        // Validate the incoming request data
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'team_name' => 'required|string|max:255',
+        'school_name' => 'required|string|max:255',
+        'sports' => 'required|string|max:255',
+        'phone' => 'required|string|max:255',
+        'address' => 'required|string|max:255',
+        'shirt' => 'required|string|max:255',
+        'start_date' => 'required|date',
+        'end_date' => 'required|date|after:start_date',
+        'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5000', 
+        'password' => 'nullable|string|min:8|confirmed', 
+    ]);
+
+    // Find the user by ID
+    $user = User::findOrFail($id);
+
+    // Update the user profile data
+    $user->name = $validatedData['name'];
+    $user->team_name = $validatedData['team_name'];
+    $user->school_name = $validatedData['school_name'];
+    $user->sports = $validatedData['sports'];
+    $user->phone = $validatedData['phone'];
+    $user->address = $validatedData['address'];
+    $user->shirt = $validatedData['shirt'];
+    $user->start_date = $validatedData['start_date'];
+    $user->end_date = $validatedData['end_date'];
+
+    if ($request->hasFile('photo')) {
+        // Get the uploaded file
+        $file = $request->file('photo');
+        
+        // Generate a unique file name
+        $ext = $file->getClientOriginalExtension();
+        $fileName = time() . rand(1, 100) . '.' . $ext;
+        
+        // Move the file to the upload directory
+        $file->move(public_path('upload'), $fileName);
+
+        // Delete the previous photo if exists
+        if ($user->photo) {
+            Storage::delete('upload/' . $user->photo);
+        }
+
+        // Update the user's photo attribute
+        $user->photo = $fileName;
+    }
+
+
+    // Update the password if provided
+    if ($request->filled('password')) {
+        $user->password = bcrypt($validatedData['password']);
+    }
+
+    // Save the updated user profile
+    $user->save();
+
+    // Redirect back with success message or any other response
+    return redirect('/admin/profile')->with('success', 'Profile updated successfully');
+    }
+
+    public function updatePlayerData(Request $request, $id){
+
+        // Validate the incoming request data
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'parent_name' => 'required|string|max:255',
+        'address' => 'required|string|max:255',
+        'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5000', 
+        'password' => 'nullable|string|min:8|confirmed', 
+    ]);
+
+    // Find the user by ID
+    $user = User::findOrFail($id);
+
+    // Update the user profile data
+    $user->name = $validatedData['name'];
+    $user->parent_name = $validatedData['parent_name'];
+    $user->address = $validatedData['address'];
+
+    if ($request->hasFile('photo')) {
+        // Get the uploaded file
+        $file = $request->file('photo');
+        
+        // Generate a unique file name
+        $ext = $file->getClientOriginalExtension();
+        $fileName = time() . rand(1, 100) . '.' . $ext;
+        
+        // Move the file to the upload directory
+        $file->move(public_path('upload'), $fileName);
+
+        // Delete the previous photo if exists
+        if ($user->photo) {
+            Storage::delete('upload/' . $user->photo);
+        }
+
+        // Update the user's photo attribute
+        $user->photo = $fileName;
+    }
+
+
+    // Update the password if provided
+    if ($request->filled('password')) {
+        $user->password = bcrypt($validatedData['password']);
+    }
+
+    // Save the updated user profile
+    $user->save();
+
+    // Redirect back with success message or any other response
+    return redirect('/admin/profile')->with('success', 'Profile updated successfully');
     }
 
 }

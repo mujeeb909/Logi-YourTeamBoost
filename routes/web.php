@@ -50,6 +50,9 @@ Route::get('/admin/alldonation', [HomeController::class, 'coachAllDonation'])->n
 
 Route::get('edit-admin/players/{id}', [HomeController::class, 'edit_player'])->name('edit-admin/players')->middleware(UserAccessMiddleware::class);
 Route::get('admin/add/link/{id}', [HomeController::class, 'AddLink'])->name('add/link')->middleware(UserAccessMiddleware::class);
+Route::get('edit-profile/{id}', [HomeController::class, 'editUserProfile'])->name('edit-profile')->middleware(UserAccessMiddleware::class);
+Route::put('update-profile/{id}', [HomeController::class, 'updateUserProfile'])->name('update-profile-data')->middleware(UserAccessMiddleware::class);
+Route::put('update-player/{id}', [HomeController::class, 'updatePlayerData'])->name('update-player-data')->middleware(UserAccessMiddleware::class);
 Route::get('/export/{coach}', [ExportController::class, 'export'])->name('export');
 Route::post('admin/save/link/{id}', [HomeController::class, 'SaveLink'])->name('save/link')->middleware(UserAccessMiddleware::class);
 Route::put('update/admin/players/{id}', [HomeController::class, 'update_player'])->name('admin/player/update')->middleware(UserAccessMiddleware::class);
