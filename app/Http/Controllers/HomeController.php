@@ -123,7 +123,13 @@ public function update_player(Request $request, $id)
 } 
     public function refDonate($id){
         $data = User::where('uuid', $id)->first();
-        
+
+        $coach = User::where('id', $data->coach_id)->first();
+
+        if ($coach->end_date && $coach->end_date < now()) {
+            return view('linkexpired');
+        }
+       
         return view('refdonate',['data' => $data]);
     }
 

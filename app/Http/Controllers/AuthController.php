@@ -53,30 +53,52 @@ class AuthController extends Controller
     public function c_registerSave(Request $request)
     {   
         
-
         Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'team_name' => 'required',
             'school_name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'no_of_participate' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'shirt' => 'required',
             'sports' => 'required',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed',
+            'photo' => 'required|image|mimes:jpeg,png,jpg|max:5000',
+
         ])->validate();
-        $number = rand(000000,999999); 
-        $baseUrl = $request->root();
         
+
+        if ($request->hasFile('photo')) {
+           
+            $file = $request->file('photo');
+            $ext = $request->photo->getClientOriginalExtension();
+            $fileName = time() . rand(1, 100) . '.' . $ext;
+            $file->move(public_path('upload'), $fileName);
+
+            $number = rand(000000,999999); 
+            $baseUrl = $request->root();
+        
+        $baseUrl = $request->root();
         $user = User::create([
             'name' => $request->name,
             'team_name' => $request->team_name,
             'school_name' => $request->school_name,
             'sports' => $request->sports,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'no_of_participate' => $request->no_of_participate,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'shirt' => $request->shirt,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'type' => "0",
-            'uuid'=> $number
+            'uuid'=> $number,
+            'photo'=>  $fileName,
         ]);
-        
-        $baseUrl = $request->root();
         $link = url($baseUrl . '/players/registration/' . $user->uuid);
         $user->link = $link;
         $user->save();
@@ -88,7 +110,7 @@ class AuthController extends Controller
             'qrcode' => $qrCodes,
             'link' => $link
         ]);
-    }
+    }}
 
     public function p_registersave(Request $request)
     {
@@ -97,7 +119,7 @@ class AuthController extends Controller
             'address' => 'required',
             'sports' => 'required',
             'guardian' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'emails' => 'required',
             'password' => 'required|confirmed',
             
@@ -111,7 +133,7 @@ class AuthController extends Controller
             $ext = $request->photo->getClientOriginalExtension();
             $fileName = time() . rand(1, 100) . '.' . $ext;
             $file->move(public_path('upload'), $fileName);
-            // $banner->image = $fileName;
+            
 
         $number = rand(000000,999999);   
         $user = User::create([
@@ -139,7 +161,7 @@ class AuthController extends Controller
     }}
 
     
- 
+
     public function login(Request $request)
     {   
         

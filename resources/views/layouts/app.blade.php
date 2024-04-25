@@ -31,7 +31,7 @@
                 @if(Auth::user()->type == 0)
                 <button data-dropdown class="flex items-center px-3 py-2 focus:outline-none hover:rounded-md" type="button"
                     x-data="{ open: false }" @click="open = true" :class="{ 'rounded-md': open }">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&h=100&q=80"
+                    <img src="{{ asset('upload/' . $userPhoto) }}"
                         alt="Profle" class="h-8 w-8 rounded-full">
 
                     <span class="ml-4 text-sm hidden md:inline-block text-white ">{{ Auth::user()->name }}</span>
