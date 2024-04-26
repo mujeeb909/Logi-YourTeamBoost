@@ -26,6 +26,9 @@ Route::get('/donate', function () {
  
 Route::get('/donate/{id}', [HomeController::class, 'refDonate'])->name('ref-donate');
  
+
+
+// ------------------- Authentication Routes for both Coaches and Players-------------------------------------//
 Route::controller(AuthController::class)->group(function () {
     Route::get('register', 'register')->name('register');
     Route::get('coach-register', 'c_register')->name('coach-register');
@@ -39,8 +42,12 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'loginAction')->name('login.action');
  
     Route::get('logout', 'logout')->middleware('auth')->name('logout');
+    
+    Route::get('email/verify/{token}', 'verifyEmail')->name('email.verify');
 });
 
+
+// ------------------- Dashboard Routes for both Coaches and Players------------------------------------- //
 Route::get('/admin/players', [HomeController::class, 'coach_players'])->name('admin/players')->middleware(UserAccessMiddleware::class);
 Route::get('/admin/teams', [HomeController::class, 'AdminTeams'])->name('admin/teams')->middleware(UserAccessMiddleware::class);
 Route::get('/admin/teams', [HomeController::class, 'AdminTeams'])->name('admin/teams')->middleware(UserAccessMiddleware::class);
@@ -56,18 +63,16 @@ Route::put('update-player/{id}', [HomeController::class, 'updatePlayerData'])->n
 Route::get('/export/{coach}', [ExportController::class, 'export'])->name('export');
 Route::post('admin/save/link/{id}', [HomeController::class, 'SaveLink'])->name('save/link')->middleware(UserAccessMiddleware::class);
 Route::put('update/admin/players/{id}', [HomeController::class, 'update_player'])->name('admin/player/update')->middleware(UserAccessMiddleware::class);
-
-
-    Route::get('/profile', [UserController::class, 'userprofile'])->name('profile');
- 
-
-
 Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home')->middleware(UserAccessMiddleware::class);
- 
-Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile')->middleware(UserAccessMiddleware::class);
+ Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile')->middleware(UserAccessMiddleware::class);
 
  
 
+Route::get('/profile', [UserController::class, 'userprofile'])->name('profile');
+ 
+
+
+// ------------------- Stripe Routes for Donations-------------------------------------//
 Route::post('/session', 'App\Http\Controllers\StripeController@session')->name('session');
 Route::get('/success', 'App\Http\Controllers\StripeController@success')->name('success');
 Route::get('/cancel', 'App\Http\Controllers\StripeController@cancel')->name('cancel');
@@ -96,6 +101,7 @@ Route::get('/cancel', 'App\Http\Controllers\StripeController@cancel')->name('can
 
 
 
+    // ------------------- MailChimp Routes -------------------------------------
 
     Route::get('/add-list-member', [MailchimpController::class, 'addListMember']);
     Route::get('/create-regular-campaign', [MailchimpController::class, 'createRegularCampaign']);

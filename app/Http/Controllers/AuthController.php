@@ -101,17 +101,20 @@ class AuthController extends Controller
             'type' => "0",
             'uuid'=> $number,
             'photo'=>  $fileName,
+            'email_date'=> null,
         ]);
         $link = url($baseUrl . '/players/registration/' . $user->uuid);
         $user->link = $link;
         $user->save();
+
+        $emailCVerifyLink = url($baseUrl . '/email/verify/' . $user->uuid);
         
         $qrCodes= QrCode::size(150)->generate($link);
  
         return view('auth/registration_confirmation',  [
             'user' => $user,
             'qrcode' => $qrCodes,
-            'link' => $link
+            'link' => $link,
         ]);
     }}
 
@@ -125,7 +128,6 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users,email',
             'emails' => 'required',
             'password' => 'required|confirmed',
-            
             'photo' => 'required|image|mimes:jpeg,png,jpg|max:5000',
             'g-recaptcha-response' => ['required', new ReCaptcha]
         ])->validate();
@@ -138,6 +140,7 @@ class AuthController extends Controller
             $fileName = time() . rand(1, 100) . '.' . $ext;
             $file->move(public_path('upload'), $fileName);
             
+
 
         $number = rand(000000,999999);   
         $user = User::create([
@@ -152,13 +155,16 @@ class AuthController extends Controller
             'photo'=>  $fileName,
             'emails' => $serializedEmails,
             'type' => 1,
-            'uuid'=> $number
+            'uuid'=> $number,
+            'email_date'=> null,
         ]);
         
         $baseUrl = $request->root();
         $link = url($baseUrl . '/donate/' . $user->uuid);
         $user->donate_link = $link;
         $user->save();
+
+        $emailPVerifyLink = url($baseUrl . '/email/verify/' . $user->uuid);
         
  
         return view('auth.player_registered',['link' => $link]);
@@ -183,6 +189,13 @@ class AuthController extends Controller
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed')
             ]);
+        }
+
+        // Check if email is verified
+        $user = auth()->user();
+        if ($user->email_date === null) {
+            Auth::logout(); 
+            return redirect()->route('login')->with('error', 'Your email is not verified. Please verify your email to proceed.');
         }
  
         $request->session()->regenerate();
@@ -209,4 +222,20 @@ class AuthController extends Controller
     {
         return view('userprofile');
     }
+
+    public function verifyEmail($id)
+{
+    $user = User::where('uuid', $id)->first();
+
+    if (!$user) {
+        // Handle invalid token
+        return redirect()->route('login')->with('error', 'Invalid verification token.');
+    }
+
+    // Mark the email as verified
+    $user->email_date = now();
+    $user->save();
+
+    return redirect()->route('login')->with('email_verified', 'Your email is verified. You can now log in.');
+}
 }

@@ -37,7 +37,8 @@ class User extends Authenticatable
         'uuid',
         'link',
         'donate_link',
-        'social_link'
+        'social_link',
+        'email_date'
         
             
     ];

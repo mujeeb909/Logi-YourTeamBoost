@@ -24,11 +24,14 @@ class CoachDataExport implements FromCollection, WithHeadings
         {
             return [
                 'Coach Name',
-                'Sports/Program',
-                'No of Players',
-                'NO OF REFERRAL EMAILS',
-                'Total Donation'
-                // Add more headings as needed
+                'Organization',
+                'Player Associated',
+                'Donor Email',
+                'Donor Paid Amount',
+                'Payment Information',
+                'Total Campaign Money Raised',
+                'Percent Money School Raised',
+                'Percent Money YourTeamBoost Takes'
             ];
         }
     
