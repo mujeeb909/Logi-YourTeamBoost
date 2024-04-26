@@ -668,7 +668,7 @@
                     <h5 class="text-light mb-4">Address</h5>
                     <p><i class="fa fa-map-marker-alt me-3"></i>192 S. Hillview Dr, Milpitas, CA 95035</p>
                     <p><i class="fa fa-phone-alt me-3"></i>(408) - 262 - 7727</p>
-                    <p><i class="fa fa-envelope me-3"></i>info.ytb@gmail.com</p>
+                    <p><i class="fa fa-envelope me-3"></i>yourteamboost@gmail.com</p>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Quick Links</h5>

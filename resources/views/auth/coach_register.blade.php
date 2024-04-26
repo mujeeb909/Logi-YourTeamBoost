@@ -10,7 +10,8 @@
     <title>Register</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
-   
+
+
 </head>
 
 <body>
@@ -26,7 +27,8 @@
                         class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                         Coach Registeration
                     </h1>
-                    <form action="{{ route('c_register.save') }}" method="POST" class="space-y-4 md:space-y-6" enctype="multipart/form-data">
+                    <form action="{{ route('c_register.save') }}" method="POST" id="registerForm"
+                        class="space-y-4 md:space-y-6" enctype="multipart/form-data">
                         @csrf
                         <div>
                             <label for="name"
@@ -70,7 +72,8 @@
                         </div>
                         <div>
                             <label for="phone"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone
+                                Number</label>
                             <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Phone Number" required="">
@@ -80,7 +83,8 @@
                         </div>
                         <div>
                             <label for="address"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Organization address</label>
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Organization
+                                address</label>
                             <input type="text" name="address" id="address" value="{{ old('address') }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Address" required="">
@@ -90,8 +94,10 @@
                         </div>
                         <div>
                             <label for="no_of_participate"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Number of participants in organization</label>
-                            <input type="text" name="no_of_participate" id="no_of_participate" value="{{ old('no_of_participate') }}"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Number of
+                                participants in organization</label>
+                            <input type="text" name="no_of_participate" id="no_of_participate"
+                                value="{{ old('no_of_participate') }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="No. of Participants" required="">
                             @error('no_of_participate')
@@ -99,7 +105,9 @@
                             @enderror
                         </div>
                         <div>
-                            <label for="shirt" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coach Shirt Size</label>
+                            <label for="shirt"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coach Shirt
+                                Size</label>
                             <select name="shirt" id="shirt"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 required="">
@@ -107,7 +115,8 @@
                                 <option value="S" {{ old('shirt') == 'S' ? 'selected' : '' }}>Small</option>
                                 <option value="M" {{ old('shirt') == 'M' ? 'selected' : '' }}>Medium</option>
                                 <option value="L" {{ old('shirt') == 'L' ? 'selected' : '' }}>Large</option>
-                                <option value="XL" {{ old('shirt') == 'XL' ? 'selected' : '' }}>Extra Large</option>
+                                <option value="XL" {{ old('shirt') == 'XL' ? 'selected' : '' }}>Extra Large
+                                </option>
                             </select>
                             @error('shirt')
                                 <span class="text-red-600">{{ $message }}</span>
@@ -115,7 +124,9 @@
                         </div>
 
                         <div>
-                            <label for="start_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Campaign Start Date</label>
+                            <label for="start_date"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Campaign Start
+                                Date</label>
                             <input type="date" name="start_date" id="start_date" value="{{ old('start_date') }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 required="">
@@ -123,9 +134,11 @@
                                 <span class="text-red-600">{{ $message }}</span>
                             @enderror
                         </div>
-                        
+
                         <div>
-                            <label for="end_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Campaign End Date</label>
+                            <label for="end_date"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Campaign End
+                                Date</label>
                             <input type="date" name="end_date" id="end_date" value="{{ old('end_date') }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 required="">
@@ -133,14 +146,18 @@
                                 <span class="text-red-600">{{ $message }}</span>
                             @enderror
                         </div>
-                        
+
                         <div>
-                            <label for="photo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coach Profile Picture</label>
-                            <input type="file" name="photo" id="photo" accept="image/*" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                            <label for="photo"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coach Profile
+                                Picture</label>
+                            <input type="file" name="photo" id="photo" accept="image/*"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required="">
                             <span class="text-grey-200 text-sm">Maximum upload file size: 5 MB</span>
                             <br>
                             @error('photo')
-                            <span class="text-red-600">{{ $message }}</span>
+                                <span class="text-red-600">{{ $message }}</span>
                             @enderror
                         </div>
                         <div>
@@ -174,8 +191,10 @@
                             @error('password_confirmation')
                                 <span class="text-red-600">{{ $message }}</span>
                             @enderror
+
                         </div>
-                        
+
+
                         <button type="submit" style="background-color: #FF6F0F"
                             class="flex w-full justify-center rounded-md  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create
                             an account</button>
@@ -193,6 +212,26 @@
             </div>
         </div>
     </section>
+
+    <script src="https://www.google.com/recaptcha/api.js?render={{ env('GOOGLE_RECAPTCHA_KEY') }}"></script>
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            grecaptcha.ready(function() {
+                grecaptcha.execute("{{ env('GOOGLE_RECAPTCHA_KEY') }}", {
+                    action: 'submit'
+                }).then(function(token) {
+
+                    document.getElementById("registerForm").insertAdjacentHTML("beforeend",
+                        '<input type="hidden" name="g-recaptcha-response" value="' + token +
+                        '">');
+
+                    document.getElementById("registerForm").submit();
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>

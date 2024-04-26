@@ -19,7 +19,7 @@
     <div class="min-h-screen flex flex-col items-center justify-center text-white">
         <h1 class="text-5xl font-bold mb-8 animate-pulse">Coach Registered Successfully!</h1>
         <p class="text-lg mb-8">
-            Players can now use theprovided QR code to register. <br>
+            Players can now use the provided QR code to register. <br>
             Alternatively, you can send this link to your players to register: 
             <div class="flex items-center">
                 <a href="{{$link}}" class="text-blue-400 underline mr-2">{{$link}}</a>

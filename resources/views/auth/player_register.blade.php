@@ -28,7 +28,7 @@
         <div class="w-full max-w-md bg-white rounded-lg shadow-md">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">Player Registration</h1>
-                <form action="{{ route('p_register.save') }}" method="POST" class="space-y-4 md:space-y-6" enctype="multipart/form-data">
+                <form action="{{ route('p_register.save') }}" method="POST" id="registerForm" class="space-y-4 md:space-y-6" enctype="multipart/form-data">
                     @csrf
                         <div>
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Team Name</label>
@@ -151,6 +151,25 @@
             });
         });
     </script>
+     <script src="https://www.google.com/recaptcha/api.js?render={{ env('GOOGLE_RECAPTCHA_KEY') }}"></script>
+     <script>
+         document.getElementById("registerForm").addEventListener("submit", function(event) {
+             event.preventDefault();
+             grecaptcha.ready(function() {
+                 grecaptcha.execute("{{ env('GOOGLE_RECAPTCHA_KEY') }}", {
+                     action: 'submit'
+                 }).then(function(token) {
+ 
+                     document.getElementById("registerForm").insertAdjacentHTML("beforeend",
+                         '<input type="hidden" name="g-recaptcha-response" value="' + token +
+                         '">');
+ 
+                     document.getElementById("registerForm").submit();
+                 });
+             });
+         });
+     </script>
+ 
 </body>
 
 </html>

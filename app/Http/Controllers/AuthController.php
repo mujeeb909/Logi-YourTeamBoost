@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Illuminate\Http\RedirectResponse;
+use App\Rules\ReCaptcha;
 
  
 
@@ -67,6 +69,7 @@ class AuthController extends Controller
             'sports' => 'required',
             'password' => 'required|confirmed',
             'photo' => 'required|image|mimes:jpeg,png,jpg|max:5000',
+            'g-recaptcha-response' => ['required', new ReCaptcha]
 
         ])->validate();
         
@@ -124,6 +127,7 @@ class AuthController extends Controller
             'password' => 'required|confirmed',
             
             'photo' => 'required|image|mimes:jpeg,png,jpg|max:5000',
+            'g-recaptcha-response' => ['required', new ReCaptcha]
         ])->validate();
         $serializedEmails = json_encode(explode(',', $request->emails));
         $photoUrl=null;
