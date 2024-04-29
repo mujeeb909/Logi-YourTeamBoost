@@ -72,17 +72,17 @@
                   <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
                     <div class="dropdown-menu m-0">
-                      @if(Route::has('login'))
-                      @auth
-                      <a href="{{ route('admin/home') }}" class="dropdown-item">Dashboard</a>
-                      <a href="{{ route('logout') }}" class="dropdown-item">Logout</a>
-                      @else
-                        <a href="{{ route('login') }}" class="dropdown-item">Login</a>
-                        @if(Route::has('register'))
-                        <a href="{{ route('register') }}" class="dropdown-item">Sign Up</a>
-                        @endif
-                      @endauth
-                      @endif
+                      @if (Route::has('login'))
+                                @auth
+                                    <a href="{{ route('admin/home') }}" class="dropdown-item">Dashboard</a>
+                                    <a href="{{ route('logout') }}" class="dropdown-item">Logout</a>
+                                @else
+                                    <a href="{{ route('login') }}" class="dropdown-item">Login</a>
+                                    @if (Route::has('register'))
+                                        <a href="{{ route('coach-register') }}" class="dropdown-item">Sign Up</a>
+                                    @endif
+                                @endauth
+                            @endif
                        
                         
                     </div>

@@ -202,7 +202,7 @@ public function update_player(Request $request, $id)
             $coachData[] = [
                 'id' => $coach->id,
                 'coachName' => $coach->name,
-                'sportsProgram' => $coach->sports,
+                'team_name' => $coach->team_name,
                 'numberOfPlayers' => $playerCount,
                 'totalEmailCount' => $totalEmailCount
             ];

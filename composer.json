@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.9",
         "maatwebsite/excel": "^3.1",
         "mailchimp/marketing": "^3.0",
+        "mailchimp/transactional": "*",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "stripe/stripe-php": "^13.16"
     },
@@ -29,10 +30,7 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/" 
-        },
-        "files": [
-            "app/helpers.php"
-        ]
+        }
     
     },
     "autoload-dev": {

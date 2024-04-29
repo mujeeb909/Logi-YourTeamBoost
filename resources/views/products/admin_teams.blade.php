@@ -92,7 +92,7 @@
                 <tr>
                     <th scope="col" class="px-6 py-3 text-left"> # </th>
                     <th scope="col" class="px-6 py-3 text-left">Coach Name</th>
-                    <th scope="col" class="px-6 py-3 text-left">Sports/Program </th>
+                    <th scope="col" class="px-6 py-3 text-left">Organization </th>
                     <th scope="col" class="px-6 py-3 text-left"> No of Players </th>
                     <th scope="col" class="px-6 py-3 text-left"> No of Referal Emails </th>
                     <th scope="col" class="px-6 py-3 text-left"> Action </th>
@@ -107,7 +107,7 @@
                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <td class="px-6 py-4 whitespace-nowrap">{{ $loop->index + 1 }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $coach['coachName'] }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ $coach['sportsProgram'] }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{ $coach['team_name'] }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $coach['numberOfPlayers'] }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $coach['totalEmailCount'] }}</td>
                             <td class="px-6 py-4 whitespace-normal">

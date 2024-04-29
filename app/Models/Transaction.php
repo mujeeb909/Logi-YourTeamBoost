@@ -12,6 +12,7 @@ class Transaction extends Model
         'session_id',
         'user_id',	
         'coach_id',	
+        'organization',
         'name',	
         'email'	,
         'amount',  

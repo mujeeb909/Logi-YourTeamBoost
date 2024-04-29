@@ -77,16 +77,16 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
                         <div class="dropdown-menu m-0">
                             @if (Route::has('login'))
-                                @auth
-                                    <a href="{{ route('admin/home') }}" class="dropdown-item">Dashboard</a>
-                                    <a href="{{ route('logout') }}" class="dropdown-item">Logout</a>
-                                @else
-                                    <a href="{{ route('login') }}" class="dropdown-item">Login</a>
-                                    @if (Route::has('register'))
-                                        <a href="{{ route('register') }}" class="dropdown-item">Sign Up</a>
-                                    @endif
-                                @endauth
-                            @endif
+                            @auth
+                                <a href="{{ route('admin/home') }}" class="dropdown-item">Dashboard</a>
+                                <a href="{{ route('logout') }}" class="dropdown-item">Logout</a>
+                            @else
+                                <a href="{{ route('login') }}" class="dropdown-item">Login</a>
+                                @if (Route::has('register'))
+                                    <a href="{{ route('coach-register') }}" class="dropdown-item">Sign Up</a>
+                                @endif
+                            @endauth
+                        @endif
 
 
                         </div>
@@ -162,10 +162,10 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" name="name" class="form-control bg-light border-0"
-                                            id="name" placeholder="Your Name" value="{{ $data->name }}"
+                                        <input type="text" name="refname" class="form-control bg-light border-0"
+                                            id="refname" placeholder="Your Name" value="{{ $data->name }}"
                                             readonly>
-                                        <label for="name">Referrer Name</label>
+                                        <label for="refname">Referrer Name</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -178,10 +178,10 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" name="name" class="form-control bg-light border-0"
-                                            id="name" placeholder="Your Name" value="{{ $data->team_name }}"
+                                        <input type="text" name="tname" class="form-control bg-light border-0"
+                                            id="tname" placeholder="Your Name" value="{{ $data->team_name }}"
                                             readonly>
-                                        <label for="name">Organization Supporting</label>
+                                        <label for="tname">Organization Supporting</label>
                                     </div>
                                 </div>
 

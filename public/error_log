@@ -1,3 +1,39 @@
 [07-Apr-2024 11:04:45 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/symfony/polyfill-mbstring/Mbstring.php on line 660
 [15-Apr-2024 19:15:25 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/symfony/polyfill-mbstring/Mbstring.php on line 660
 [15-Apr-2024 19:15:41 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/symfony/polyfill-mbstring/Mbstring.php on line 660
+[29-Apr-2024 05:20:02 UTC] PHP Warning:  require(/home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/../../app/helpers.php): Failed to open stream: No such file or directory in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php on line 41
+[29-Apr-2024 05:20:02 UTC] PHP Warning:  require(/home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/../../app/helpers.php): Failed to open stream: No such file or directory in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php on line 41
+[29-Apr-2024 05:20:02 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/../../app/helpers.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/autoload.php(25): ComposerAutoloaderInita9bbd3976012d5a30a5f6721e86c380d::getLoader()
+#2 /home/gzrt7oat9ip2/public_html/yourteamboost.com/public/index.php(13): require('/home/gzrt7oat9...')
+#3 {main}
+  thrown in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php on line 41
+[29-Apr-2024 05:20:37 UTC] PHP Warning:  require(/home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/../../app/helpers.php): Failed to open stream: No such file or directory in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php on line 41
+[29-Apr-2024 05:20:37 UTC] PHP Warning:  require(/home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/../../app/helpers.php): Failed to open stream: No such file or directory in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php on line 41
+[29-Apr-2024 05:20:37 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/../../app/helpers.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/autoload.php(25): ComposerAutoloaderInita9bbd3976012d5a30a5f6721e86c380d::getLoader()
+#2 /home/gzrt7oat9ip2/public_html/yourteamboost.com/public/index.php(13): require('/home/gzrt7oat9...')
+#3 {main}
+  thrown in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php on line 41
+[29-Apr-2024 05:21:39 UTC] PHP Warning:  require(/home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/../../app/helpers.php): Failed to open stream: No such file or directory in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php on line 41
+[29-Apr-2024 05:21:39 UTC] PHP Warning:  require(/home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/../../app/helpers.php): Failed to open stream: No such file or directory in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php on line 41
+[29-Apr-2024 05:21:39 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/../../app/helpers.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/autoload.php(25): ComposerAutoloaderInita9bbd3976012d5a30a5f6721e86c380d::getLoader()
+#2 /home/gzrt7oat9ip2/public_html/yourteamboost.com/public/index.php(13): require('/home/gzrt7oat9...')
+#3 {main}
+  thrown in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php on line 41
+[29-Apr-2024 05:25:56 UTC] PHP Warning:  require(/home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/../../app/helpers.php): Failed to open stream: No such file or directory in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php on line 55
+[29-Apr-2024 05:25:56 UTC] PHP Warning:  require(/home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/../../app/helpers.php): Failed to open stream: No such file or directory in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php on line 55
+[29-Apr-2024 05:25:56 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/../../app/helpers.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php:55
+Stack trace:
+#0 /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php(38): composerRequirea9bbd3976012d5a30a5f6721e86c380d()
+#1 /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/autoload.php(25): ComposerAutoloaderInita9bbd3976012d5a30a5f6721e86c380d::getLoader()
+#2 /home/gzrt7oat9ip2/public_html/yourteamboost.com/public/index.php(13): require('/home/gzrt7oat9...')
+#3 {main}
+  thrown in /home/gzrt7oat9ip2/public_html/yourteamboost.com/vendor/composer/autoload_real.php on line 55

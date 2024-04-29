@@ -11,6 +11,7 @@ use Illuminate\Validation\ValidationException;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Http\RedirectResponse;
 use App\Rules\ReCaptcha;
+use App\Http\Controllers\MailChimpController;
 
  
 
@@ -108,6 +109,7 @@ class AuthController extends Controller
         $user->save();
 
         $emailCVerifyLink = url($baseUrl . '/email/verify/' . $user->uuid);
+
         
         $qrCodes= QrCode::size(150)->generate($link);
  
@@ -165,6 +167,7 @@ class AuthController extends Controller
         $user->save();
 
         $emailPVerifyLink = url($baseUrl . '/email/verify/' . $user->uuid);
+        
         
  
         return view('auth.player_registered',['link' => $link]);
@@ -228,11 +231,10 @@ class AuthController extends Controller
     $user = User::where('uuid', $id)->first();
 
     if (!$user) {
-        // Handle invalid token
         return redirect()->route('login')->with('error', 'Invalid verification token.');
     }
 
-    // Mark the email as verified
+
     $user->email_date = now();
     $user->save();
 

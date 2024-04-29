@@ -25,13 +25,11 @@ class CoachDataExport implements FromCollection, WithHeadings
             return [
                 'Coach Name',
                 'Organization',
-                'Player Associated',
+                'Players Associated',
                 'Donor Email',
-                'Donor Paid Amount',
-                'Payment Information',
+                'Total Donor Paid Amount',
                 'Total Campaign Money Raised',
-                'Percent Money School Raised',
-                'Percent Money YourTeamBoost Takes'
+                'Percent Money School Raised'
             ];
         }
     
@@ -42,38 +40,56 @@ class CoachDataExport implements FromCollection, WithHeadings
                 ->where('coach_id', 0)
                 ->where('type', '!=', 3)
                 ->first(); 
-    
+            
             // Retrieve player count
             $playerCount = User::where('coach_id', $this->coachId)->count();
             $players = User::where('coach_id', $this->coachId)->get();
             $totalEmailCount=0;
+
             foreach ($players as $player) {
-                
                 $emailsArray = explode(',', $player->emails);
-            
-                
                 $totalEmailCount += count($emailsArray);
             }
             
             $coachName = $coachData->name; 
-            $sportsProgram = $coachData->sports; 
+            $OrganProgram = $coachData->team_name; 
     
             $donation = Transaction::where('coach_id', $this->coachId)->sum('amount');
+            $donorEmails = Transaction::where('coach_id', $this->coachId)->count('id');
+            $organizationDonation = Transaction::where('organization', $coachData->team_name)->sum('amount');
 
-            if($donation == null){
-                $donation = '$' . 0;
-            }else{
-                $donation = '$' . $donation;
+            
+
+            $organizationPlayers = User::where('team_name',$coachData->team_name)
+                                        ->where('coach_id',$this->coachId)
+                                        ->get();
+
+            $totalOrganizationPlayersEmails = [];
+
+            foreach ($organizationPlayers as $organizationPlayer) {
+                
+                $emailsArray = explode(',', $organizationPlayer->emails);
+                $trimmedEmailsArray = array_map('trim', $emailsArray);
+                $totalOrganizationPlayersEmails = array_merge($totalOrganizationPlayersEmails, $trimmedEmailsArray);
             }
+
+            $countMatchedEmails = Transaction::whereIn('email',  $totalOrganizationPlayersEmails)->count();
+            $countAllOrganizationPlayersEmails = count($totalOrganizationPlayersEmails);
+                
+            $perOrganizationDonation = ($countMatchedEmails / $countAllOrganizationPlayersEmails) * 100;
+            
             
             return collect([
                 [
                     $coachName,
-                    $sportsProgram,
-                    $playerCount,
-                    $totalEmailCount,
-                    $donation
+                    $OrganProgram,
+                    ($playerCount)?$playerCount:'0',
+                    ($donorEmails)?$donorEmails:'0',
+                    ($donation)?'$'.$donation:'$0',
+                    ($organizationDonation)?'$'.$organizationDonation:'$0',
+                    ($perOrganizationDonation)?$perOrganizationDonation.'%':'0%'
                 ]
             ]);
         }
     }
+

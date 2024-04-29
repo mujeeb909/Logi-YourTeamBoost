@@ -23,9 +23,9 @@ Route::get('/donate', function () {
 })->name('donate');
 
 
- 
+
 Route::get('/donate/{id}', [HomeController::class, 'refDonate'])->name('ref-donate');
- 
+
 
 
 // ------------------- Authentication Routes for both Coaches and Players-------------------------------------//
@@ -37,13 +37,14 @@ Route::controller(AuthController::class)->group(function () {
     
     Route::get('players/registration/{id}', 'p_register')->name('player-register');
     Route::post('/players-register', 'p_registersave')->name('p_register.save');
- 
+
     Route::get('login', 'login')->name('login');
     Route::post('login', 'loginAction')->name('login.action');
- 
+
     Route::get('logout', 'logout')->middleware('auth')->name('logout');
     
     Route::get('email/verify/{token}', 'verifyEmail')->name('email.verify');
+
 });
 
 
@@ -64,12 +65,10 @@ Route::get('/export/{coach}', [ExportController::class, 'export'])->name('export
 Route::post('admin/save/link/{id}', [HomeController::class, 'SaveLink'])->name('save/link')->middleware(UserAccessMiddleware::class);
 Route::put('update/admin/players/{id}', [HomeController::class, 'update_player'])->name('admin/player/update')->middleware(UserAccessMiddleware::class);
 Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home')->middleware(UserAccessMiddleware::class);
- Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile')->middleware(UserAccessMiddleware::class);
-
- 
+Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile')->middleware(UserAccessMiddleware::class);
 
 Route::get('/profile', [UserController::class, 'userprofile'])->name('profile');
- 
+
 
 
 // ------------------- Stripe Routes for Donations-------------------------------------//
@@ -95,10 +94,9 @@ Route::get('/cancel', 'App\Http\Controllers\StripeController@cancel')->name('can
     Route::get('/campaigns-list', [MailchimpController::class, 'getCampaignsList']);
     Route::get('/create-campaign', [MailchimpController::class, 'createCampaign']);
 
-   
+
     Route::get('/send-emails-to-audience', [MailchimpController::class, 'sendEmailsToAudience']);
     Route::get('/send-campaign', [MailchimpController::class, 'sendCampaign']);
-
 
 
     // ------------------- MailChimp Routes -------------------------------------
@@ -107,4 +105,3 @@ Route::get('/cancel', 'App\Http\Controllers\StripeController@cancel')->name('can
     Route::get('/create-regular-campaign', [MailchimpController::class, 'createRegularCampaign']);
     
 
-    
