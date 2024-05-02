@@ -109,6 +109,8 @@ class AuthController extends Controller
         $user->save();
 
         $emailCVerifyLink = url($baseUrl . '/email/verify/' . $user->uuid);
+        $sendEmail = new MailChimpController();
+        $sendEmail->sendEmail($user, $emailCVerifyLink);
 
         
         $qrCodes= QrCode::size(150)->generate($link);
@@ -167,7 +169,8 @@ class AuthController extends Controller
         $user->save();
 
         $emailPVerifyLink = url($baseUrl . '/email/verify/' . $user->uuid);
-        
+        $sendEmail = new MailChimpController();
+        $sendEmail->sendEmail($user, $emailPVerifyLink);
         
  
         return view('auth.player_registered',['link' => $link]);

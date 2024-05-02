@@ -39,12 +39,18 @@
                             <input type="text" name="name" id="name"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 placeholder="" value="{{ $user->name }}">
+                                @error('name')
+                                <span class="text-red-600">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="team_name" class="text-sm font-medium text-gray-900 block mb-2">Team Name</label>
                             <input type="text" name="team_name" id="team_name"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 placeholder="" value="{{ $user->team_name }}">
+                                @error('team_name')
+                                <span class="text-red-600">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="school_name" class="text-sm font-medium text-gray-900 block mb-2">School
@@ -52,6 +58,10 @@
                             <input type="text" name="school_name" id="school_name"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 placeholder="" value="{{ $user->school_name }}">
+                                @error('school_name')
+                                <span class="text-red-600">{{ $message }}</span>
+                            @enderror
+
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="sports"
@@ -59,12 +69,18 @@
                             <input type="text" name="sports" id="sports"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 placeholder="" value="{{ $user->sports }}">
+                                @error('sports')
+                                <span class="text-red-600">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="phone" class="text-sm font-medium text-gray-900 block mb-2">Phone Number</label>
                             <input type="text" name="phone" id="phone"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 placeholder="" value="{{ $user->phone }}">
+                                @error('phone')
+                                <span class="text-red-600">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="address" class="text-sm font-medium text-gray-900 block mb-2">Organization
@@ -72,6 +88,9 @@
                             <input type="text" name="address" id="address"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 placeholder="" value="{{ $user->address }}">
+                                @error('address')
+                                <span class="text-red-600">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="shirt" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coach
@@ -127,6 +146,9 @@
                             <input type="password" name="password" id="password"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 placeholder="*****">
+                                @error('password')
+                                <span class="text-red-600">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="password_confirmation"
@@ -135,6 +157,9 @@
                             <input type="password" name="password_confirmation" id="password_confirmation"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 placeholder="*****">
+                                @error('password')
+                                <span class="text-red-600">{{ $message }}</span>
+                            @enderror
                         </div>
 
 
@@ -159,6 +184,9 @@
                             <input type="text" name="name" id="name"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 placeholder="" value="{{ $user->name }}">
+                                @error('name')
+                                <span class="text-red-600">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="parent_name" class="text-sm font-medium text-gray-900 block mb-2">Guardian/Parent
@@ -166,6 +194,9 @@
                             <input type="text" name="parent_name" id="parent_name"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 placeholder="" value="{{ $user->parent_name }}">
+                                @error('parent_name')
+                                <span class="text-red-600">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="address" class="text-sm font-medium text-gray-900 block mb-2">Guardian/Parent
@@ -173,6 +204,9 @@
                             <input type="text" name="address" id="address"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 placeholder="" value="{{ $user->address }}">
+                                @error('address')
+                                <span class="text-red-600">{{ $message }}</span>
+                            @enderror
                         </div>
 
 
@@ -197,6 +231,9 @@
                             <input type="password" name="password" id="password"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 placeholder="*****">
+                                @error('password')
+                                <span class="text-red-600">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <label for="password_confirmation"
@@ -205,6 +242,9 @@
                             <input type="password" name="password_confirmation" id="password_confirmation"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 placeholder="*****">
+                                @error('password_confirmation')
+                                <span class="text-red-600">{{ $message }}</span>
+                            @enderror
                         </div>
 
 

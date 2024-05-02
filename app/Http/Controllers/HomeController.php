@@ -265,7 +265,7 @@ public function update_player(Request $request, $id)
         'start_date' => 'required|date',
         'end_date' => 'required|date|after:start_date',
         'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5000', 
-        'password' => 'nullable|string|min:8|confirmed', 
+        'password' => 'required|string|min:8|confirmed', 
     ]);
 
     // Find the user by ID
@@ -323,7 +323,7 @@ public function update_player(Request $request, $id)
         'parent_name' => 'required|string|max:255',
         'address' => 'required|string|max:255',
         'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5000', 
-        'password' => 'nullable|string|min:8|confirmed', 
+        'password' => 'required|string|min:8|confirmed',  
     ]);
 
     // Find the user by ID

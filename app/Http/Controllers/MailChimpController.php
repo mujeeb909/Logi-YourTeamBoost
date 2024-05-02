@@ -253,21 +253,27 @@ public function createRegularCampaign(Request $request)
 
 
 
-public function sendEmail(Request $request) {
-    $apiKey = 'md-s6db9lstRAxpv_UR5Ve6qw';
+public function sendEmail($user, $link) {
+    $apiKey = 'md-n_VsfkYU5LpalcgGU0v07A';
     $endpoint = 'https://mandrillapp.com/api/1.0/messages/send.json';
+    $to_send = $user->email;
 
+    $html = "<p>Thank you for signing up for our service! Before you can begin enjoying all the benefits of your new account, we need to verify your email address.
+    To complete the verification process, please click on the following link:</p>
+    <p><a href='{$link}'>Verify Link</a></p>
+    <p>Once you've clicked the link, your email address will be verified, and you'll be all set to start using our platform. If you have any questions or encounter any issues, please don't hesitate to reach out to our support team at <a href='mailto:yourteamboost@gmail.com'>yourteamboost@gmail.com</a>.</p>
+    <p>Thank you for choosing YourTeamBoost!</p>";
+    
     // Define email parameters
     $params = [
         'key' => $apiKey,
         'message' => [
             'from_email' => config('mail.from.address'),
             'to' => [
-                ['email' => 'taimoor.5518@gmail.com', 'type' => 'to']
+                ['email' => $to_send, 'type' => 'to']
             ],
-            'subject' => 'Email for testing',
-            'text' => 'Your Email Content Here',
-            'html' => '<p>Your HTML Email Content Here</p>'
+            'subject' => 'Verify Your Email Address for Account Activation',
+            'html' => $html
         ]
     ];
 
